@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -32,7 +34,51 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.interFont {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.96rem;
+}
+
+.interFont2 {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.bgLily {
+  background-color: #CFAABE;
+}
+
+.formBox {
+  background-color: #CFAABE;
+  padding: 40px;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background-color: #8064A2 !important;
+  border-color: #8064A2 !important;
+}
+
+.btn-primary:hover {
+  background-color: #6c548a !important;
+  border-color: #6c548a !important;
+}
+
+.colorRed {
+  color: darkred;
+}
+
+.loginOrRegisterHref {
+  text-decoration: none;
+  color: #8064A2;
+}
+
+.loginOrRegisterHref:hover {
+  color: #6c548a;
 }
