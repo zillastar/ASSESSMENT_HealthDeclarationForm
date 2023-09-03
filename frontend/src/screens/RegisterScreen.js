@@ -15,13 +15,20 @@ const RegisterScreen = () => {
     const [emailExists, setEmailExists] = useState(null)
 
     const registerButton = () => {
+        if (userName.current.value === "" || email.current.value === "" || password.current.value === "") {
+            alert("Please fill in the blanks!");
+            return;
+        }
         axios.post(`${baseUrl}/api/user`, {
             username: (userName.current.value).trim(),
             email: (email.current.value).trim(),
             password: (password.current.value).trim()
         }).then(() => {
-            window.location.reload();
-        }).catch((err) => {
+            localStorage.setItem("fromRegister", "exists");
+        }).then(() => {
+            window.location.href = "/login";
+        })
+        .catch((err) => {
             console.log(err)
             if (err.response.status === 409) {
                 setEmailExists("Email already exists!")
@@ -39,7 +46,7 @@ const RegisterScreen = () => {
                         <form style={{ marginTop: '2rem' }}>
                             <div className="form-group">
                                 <input type="text" className="form-control p-3" ref={userName} rows="3" placeholder="Username" />
-                                <input type="email" className="form-control p-3" ref={email} rows="3" placeholder="Email" />
+                                <input type="email" className="form-control p-3" ref={email} rows="3" placeholder="Email" required />
                                 <input type="password" className="form-control p-3" rows="3" ref={password} placeholder="Password" />
                                 <p className="colorRed mt-1">{emailExists}</p>
                             </div>

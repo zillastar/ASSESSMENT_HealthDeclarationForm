@@ -21,7 +21,23 @@ const LoginScreen = () => {
             const token = response.data.token;
             localStorage.setItem("token", token);
         }).then(() => {
-            window.location.href = "/"
+            const fromRegister = localStorage.getItem("fromRegister");
+            const fromHome = localStorage.getItem("fromHome");
+            console.log(fromRegister);
+            console.log(fromHome);
+            if (fromRegister === "exists") {
+                localStorage.removeItem("fromRegister");
+                window.location.href = "/profile"
+                return;
+            }
+            if (fromHome === "exists") {
+                localStorage.removeItem("fromHome");
+                window.location.href = "/profile"
+                return;
+            } else {
+                window.history.back();
+                return;
+            }
         }).catch((err) => {
             console.log(err)
             if (err.response.status === 401) {
