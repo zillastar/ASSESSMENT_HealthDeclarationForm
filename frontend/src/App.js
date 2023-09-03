@@ -13,6 +13,8 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import NewFormScreen from "./screens/NewFormScreen";
 import FormDashboard from "./screens/FormDashboard";
+import EditFormScreen from "./screens/EditFormScreen";
+import ConfirmedScreen from "./screens/ConfirmedScreen";
 
 const App = () => {
   return (
@@ -21,11 +23,13 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<HomeScreen />} />
           <Route path="/form/:id" element={<FormScreen />} />
+          <Route path="/form/complete" element={<ConfirmedScreen />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/profile" element={<ProfileScreen />} />
           <Route path="/newform" element={<NewFormScreen />} />
           <Route path="/viewform/:id" element={<FormDashboard />} />
+          <Route path="/viewform/:id/edit" element={<EditFormScreen />} />
           <Route path="*" element={<NoScreen />} />{/* THIS PATH NEEDS TO BE THE LAST PATH. DO NOT ADD ANY ROUTE PATHS AFTER THIS ONE. */}
         </Routes>
       </BrowserRouter>
