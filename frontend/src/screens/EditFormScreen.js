@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 const EditFormScreen = () => {
     let baseUrl;
     // baseURL for API call between when it is deployed and in development (localhost) stage
-    window.location.hostname.includes("localhost") ? baseUrl = "http://localhost:3000" : baseUrl = "https://health-assessment-form.netlify.app";
+    window.location.hostname.includes("localhost") ? baseUrl = "http://localhost:3000" : baseUrl = "https://health-assessment-form.onrender.com";
     console.log(baseUrl);
 
     const title = useRef(null);
