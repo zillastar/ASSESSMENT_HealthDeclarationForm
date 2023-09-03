@@ -2,7 +2,7 @@
 
 const HomeScreen = () => {
     let baseUrl;
-    window.location.hostname.includes("localhost") ? baseUrl = "http://localhost:3000" : baseUrl = "undecided";
+    window.location.hostname.includes("localhost") ? baseUrl = "http://localhost:3000" : baseUrl = "https://health-assessment-form.netlify.app/";
 
     console.log(baseUrl)
 
