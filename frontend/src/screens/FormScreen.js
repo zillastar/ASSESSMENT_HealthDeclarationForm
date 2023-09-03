@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -15,13 +15,29 @@ const FormScreen = () => {
     const symptoms = useRef(null);
     const contactWithCOVID = useRef(null);
 
+    // useState variables for form-validation checking
     const [requiredUserName, setRequiredUserName] = useState(null);
-    const [requiredTemperature, setRequiredTemperature] = useState(null)
-    const [requiredSymptoms, setRequiredSymptoms] = useState(null)
-    const [requiredContactWithCOVID, setRequiredContactWithCOVID] = useState(null)
+    const [requiredTemperature, setRequiredTemperature] = useState(null);
+    const [requiredSymptoms, setRequiredSymptoms] = useState(null);
+    const [requiredContactWithCOVID, setRequiredContactWithCOVID] = useState(null);
+
+    // set title and description of the form.
+    const [title, setTitle] = useState(null);
+    const [description, setDescription] = useState(null);
 
     const params = useParams();
 
+    useEffect(() => {
+        axios.get(`${baseUrl}/api/form/byUQID?id=${params.id}`)
+            .then((response) => {
+                if (response.data.length === 0) {
+                    window.location.href = "/404"
+                    return;
+                }
+                setTitle(response.data[0].name);
+                setDescription(response.data[0].description);
+            })
+    })
 
     // button onClick function
     const submitForm = () => {
@@ -32,6 +48,7 @@ const FormScreen = () => {
             if (userName.current.value === "") {
                 setRequiredUserName("You must fill this required field!")
             } else if (requiredUserName === "You must fill this required field!") {
+                // rechecks in-case user has filled the input after initial validation reminder
                 setRequiredUserName(null)
             }
 
@@ -71,7 +88,7 @@ const FormScreen = () => {
             console.log(contactWithCOVID.current.value);
 
             // Final step after post request is successful
-            window.location.reload();
+            window.location.href = "/form/complete"
         });
     };
 
@@ -79,7 +96,9 @@ const FormScreen = () => {
         <div>
             <NavBar />
             <div className="container d-flex justify-content-center">
-                <form className="w-75 formBox interFont needs-validation" noValidate>
+                <form className="w-75 formBox interFont">
+                    <h1>{title}</h1>
+                    <h5 className='mb-5'>{description}</h5>
                     <div className="form-group">
                         <p>1. Please state your name.</p>
                         <input type="text" className="form-control" rows="3" ref={userName} placeholder="Enter your name..." required />

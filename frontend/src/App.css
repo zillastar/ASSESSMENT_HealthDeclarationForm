@@ -98,3 +98,7 @@
 .card:hover {
   box-shadow: 5px 5px 3px lightgray;
 }
+
+#formSubmit {
+  min-height: 700px;
+}
