@@ -74,6 +74,14 @@
   color: darkred;
 }
 
+.colorBrightRed {
+  color: red !important;
+}
+
+.colorGreen {
+  color: green;
+}
+
 .loginOrRegisterHref {
   text-decoration: none;
   color: #8064A2;
@@ -81,4 +89,12 @@
 
 .loginOrRegisterHref:hover {
   color: #6c548a;
+}
+
+.card {
+  text-decoration: none;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 3px lightgray;
 }

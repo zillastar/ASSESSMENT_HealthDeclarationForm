@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const FormScreen = () => {
     let baseUrl;
@@ -18,6 +19,8 @@ const FormScreen = () => {
     const [requiredTemperature, setRequiredTemperature] = useState(null)
     const [requiredSymptoms, setRequiredSymptoms] = useState(null)
     const [requiredContactWithCOVID, setRequiredContactWithCOVID] = useState(null)
+
+    const params = useParams();
 
 
     // button onClick function
@@ -59,7 +62,7 @@ const FormScreen = () => {
             temperature: (temperature.current.value).trim(),
             symptoms: (symptoms.current.value).trim(),
             contactWithCOVID: (contactWithCOVID.current.value).trim(),
-            formUQID: 0
+            formUQID: params.id
         }).then(() => {
             // For any debugging purposes
             console.log(userName.current.value);

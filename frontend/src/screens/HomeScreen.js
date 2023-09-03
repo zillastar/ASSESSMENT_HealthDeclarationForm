@@ -1,8 +1,16 @@
+
+
 const HomeScreen = () => {
     let baseUrl;
     window.location.hostname.includes("localhost") ? baseUrl = "http://localhost:3000" : baseUrl = "undecided";
 
     console.log(baseUrl)
+
+    const token = localStorage.getItem("token");
+
+    if (token != null) {
+        window.location.href = "/profile";
+    }
 
     return (
         <div className="container">
