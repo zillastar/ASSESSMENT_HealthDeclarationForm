@@ -84,13 +84,13 @@ const EditFormScreen = () => {
             <NavBar />
             <div className="container">
                 <div className="row">
-                    <div className="col-2">
+                    <div className="col-6 col-md-2">
                         <CopyToClipboard className="btn btn-primary interFont2 px-4" text={`${baseUrl}/form/${params.id}`}>
                             <button onClick={copyLinkButton}>Copy Form Link</button>
                         </CopyToClipboard>
                         <div className="mb-4 colorGreen interFont">{copied}</div>
                     </div>
-                    <div className="col-2">
+                    <div className="col-6 col-md-2">
                         <a href={`/viewform/${params.id}`} className="btn btn-primary interFont2 px-4">View Responses</a>
                     </div>
                 </div>

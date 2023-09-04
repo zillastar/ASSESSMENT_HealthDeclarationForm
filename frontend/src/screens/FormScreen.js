@@ -37,7 +37,7 @@ const FormScreen = () => {
                 setTitle(response.data[0].name);
                 setDescription(response.data[0].description);
             })
-    }, [])
+    }, [baseUrl, params.id])
 
     // button onClick function
     const submitForm = () => {
