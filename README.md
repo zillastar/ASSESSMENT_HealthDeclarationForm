@@ -5,7 +5,7 @@ Done with MySQL, ExpressJS, ReactJS, & NodeJS.
 https://health-assessment-form.onrender.com/
 
 ### Sample account: 
-email: johnlee@gmail.com
+email: johnlee@gmail.com  
 password: johnmama
 
 ### Instructions on how to run local instance: 
