@@ -43,12 +43,12 @@ const RegisterScreen = () => {
         }).then(() => {
             window.location.href = "/login";
         })
-        .catch((err) => {
-            console.log(err)
-            if (err.response.status === 409) {
-                setEmailExists("Email already exists!")
-            }
-        })
+            .catch((err) => {
+                console.log(err)
+                if (err.response.status === 409) {
+                    setEmailExists("Email already exists!")
+                }
+            })
     }
 
     return (

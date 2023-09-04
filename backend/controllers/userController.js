@@ -66,7 +66,7 @@ module.exports.userLogin = function (req, res, next) {
         details.email
     ];
     let id;
-    
+
     connection
         .query(sqlStatement, values)
         .then(([rows, fields]) => {

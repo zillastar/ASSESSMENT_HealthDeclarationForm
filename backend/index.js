@@ -1,7 +1,6 @@
 // Express, Cors, & Path
 const express = require('express');
 const cors = require('cors');
-const connection = require('./db'); //Import from db.js
 const path = require('path');
 
 // Porting
