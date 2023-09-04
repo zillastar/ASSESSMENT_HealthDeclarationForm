@@ -1,6 +1,6 @@
 # Health Declaration Form
 
-### Deployed website: 
+### Deployed website (takes a while to wakeup!) : 
 https://health-assessment-form.onrender.com/
 
 ### Instructions on how to run local instance: 
@@ -25,6 +25,13 @@ At the root directory, run **npm run postInstall**
 Step 3:
 
 To start the program, run **npm start** at the root directory.
+
+
+### Unit Testing
+
+1. Enter valid form information
+2. Enter empty form information
+3. Enter form information that is half-valid and half-empty.
 
 
 
