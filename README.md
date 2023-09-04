@@ -5,13 +5,9 @@ https://health-assessment-form.onrender.com/
 
 ### Instructions on how to run local instance: 
 
-backend/.env file: 
+backend/.env file IN THE GOOGLE DOCS: 
 
-DATABASE_URL='mysql://v6gkp6m3qkqxfuvuh3pk:pscale_pw_x7JLzwBc9CnLppwJqf4WF0SOMgn4CUNWnt4Q8eXANda@aws.connect.psdb.cloud/healthassessmentform?ssl={"rejectUnauthorized":true}'  
-PORT = 3000  
-DB_CONNECTION_LIMIT = 10  
-SALT_ROUNDS = 10  
-JWT_PRIVATE_KEY = 'dyseobk2870452683216jcxzm87653482@!%*#@$dsfbsdk'  
+https://docs.google.com/document/d/1aw4TP9stfOnCzhBSST_WTPo6u5TRJcX0QqkZRmf5cvA/edit?usp=sharing
 
 
 Step 1: 
