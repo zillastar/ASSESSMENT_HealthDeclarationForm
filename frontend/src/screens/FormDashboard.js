@@ -35,11 +35,15 @@ const FormDashboard = () => {
                     window.location.href = "/404";
                     return;
                 }
+            }).catch((err) => {
+                console.log(err)
             });
 
         axios.get(`${baseUrl}/api/form/data?id=${params.id}`)
             .then((response) => {
                 setData(response.data);
+            }).catch((err) => {
+                console.log(err)
             });
 
     }, [baseUrl, params.id, token])

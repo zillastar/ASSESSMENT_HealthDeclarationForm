@@ -43,6 +43,8 @@ const EditFormScreen = () => {
 
                 setTitlePlaceholder(response.data[0].name);
                 setDescriptionPlaceholder(response.data[0].description);
+            }).catch((err) => {
+                console.log(err)
             });
 
     }, [baseUrl, params.id, token])
@@ -60,7 +62,9 @@ const EditFormScreen = () => {
         }).then(() => {
             alert("Successfully edited.");
             window.location.reload();
-        })
+        }).catch((err) => {
+            console.log(err)
+        });
     }
 
     const deleteFormButton = () => {
@@ -69,7 +73,9 @@ const EditFormScreen = () => {
                 .then(() => {
                     alert("Form has been successfully deleted.");
                     window.location.href = "/profile";
-                })
+                }).catch((err) => {
+                    console.log(err)
+                });
         }
     }
 

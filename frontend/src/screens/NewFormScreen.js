@@ -26,7 +26,9 @@ const NewFormScreen = () => {
         }).then(() => {
             alert("Form has been successfully made.")
             window.location.href = "/profile"
-        })
+        }).catch((err) => {
+            console.log(err)
+        });
     }
 
     return (

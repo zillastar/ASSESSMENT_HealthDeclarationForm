@@ -11,7 +11,13 @@ const LoginScreen = () => {
     const email = useRef(null);
     const password = useRef(null);
 
-    const [incorrectPassword, setIncorrectPassword] = useState(null)
+    const [incorrectPassword, setIncorrectPassword] = useState(null);
+    const token = localStorage.getItem("token");
+
+    if (token != null) {
+        window.location.href = "/profile";
+        return;
+    }
 
     const loginButton = () => {
         axios.post(`${baseUrl}/api/user/login`, {
@@ -26,11 +32,13 @@ const LoginScreen = () => {
             console.log(fromRegister);
             console.log(fromHome);
             if (fromRegister === "exists") {
+                // if user came from register page, it will redirect them to profile page by default.
                 localStorage.removeItem("fromRegister");
                 window.location.href = "/profile"
                 return;
             }
             if (fromHome === "exists") {
+                // if user came from home (index) page, it will redirect them to profile page by default.
                 localStorage.removeItem("fromHome");
                 window.location.href = "/profile"
                 return;

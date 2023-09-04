@@ -37,7 +37,7 @@ const FormScreen = () => {
                 setTitle(response.data[0].name);
                 setDescription(response.data[0].description);
             })
-    })
+    }, [])
 
     // button onClick function
     const submitForm = () => {
@@ -89,6 +89,8 @@ const FormScreen = () => {
 
             // Final step after post request is successful
             window.location.href = "/form/complete"
+        }).catch((err) => {
+            console.log(err)
         });
     };
 

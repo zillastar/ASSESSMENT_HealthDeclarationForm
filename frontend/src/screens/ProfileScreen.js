@@ -23,7 +23,10 @@ const ProfileScreen = () => {
         axios.get(`${baseUrl}/api/form/byUser?id=${decode.id}`)
             .then((response) => {
                 setUserForms(response.data)
-            })
+            }).catch((err) => {
+                console.log(err)
+            });
+
     }, [baseUrl, token])
 
     return (
@@ -33,14 +36,14 @@ const ProfileScreen = () => {
                 <a type="button" className="mb-4 btn btn-primary interFont2 px-4" href="/newform">New Form</a>
                 <div className="row">
                     {userForms.map(form =>
-                    <div className="col-3"> 
-                        <a className="card me-2" href={`/viewform/${form.formUQID}`}>
-                            <div className="card-body">
-                                <div className="interFont2">{form.name}</div>
-                                <div>{form.description}</div>
-                            </div>
-                        </a>
-                    </div>
+                        <div className="col-3">
+                            <a className="card me-2" href={`/viewform/${form.formUQID}`}>
+                                <div className="card-body">
+                                    <div className="interFont2">{form.name}</div>
+                                    <div>{form.description}</div>
+                                </div>
+                            </a>
+                        </div>
                     )}
                 </div>
             </div>

@@ -11,7 +11,6 @@ const ConfirmedScreen = () => {
                         <h4>Form successfully submitted!</h4>
                     </div>
                 </div>
-
             </div>
         </div>
     )

@@ -11,14 +11,29 @@ const RegisterScreen = () => {
     const userName = useRef(null);
     const email = useRef(null)
     const password = useRef(null);
+    const token = localStorage.getItem("token");
 
-    const [emailExists, setEmailExists] = useState(null)
+    const [emailExists, setEmailExists] = useState(null);
+
+    if (token != null) {
+        window.location.href = "/profile";
+        return;
+    }
 
     const registerButton = () => {
+        const checkValidEmail = /^\S+@\S+\.\S+$/;
+
         if (userName.current.value === "" || email.current.value === "" || password.current.value === "") {
             alert("Please fill in the blanks!");
             return;
         }
+
+        if (!checkValidEmail.test(email.current.value.trim())) {
+            alert("Invalid email address");
+            return;
+        }
+
+        // send information to backend to create user
         axios.post(`${baseUrl}/api/user`, {
             username: (userName.current.value).trim(),
             email: (email.current.value).trim(),
